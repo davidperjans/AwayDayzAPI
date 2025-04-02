@@ -1,0 +1,6 @@
+@AwayDayzAPI_HostAddress = http://localhost:5017
+
+GET {{AwayDayzAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
