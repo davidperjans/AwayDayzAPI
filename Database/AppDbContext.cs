@@ -1,4 +1,5 @@
-﻿using AwayDayzAPI.Models;
+﻿using System.Reflection.Emit;
+using AwayDayzAPI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,8 @@ namespace AwayDayzAPI.Database
         public DbSet<FriendRequest> FriendRequests { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
         public DbSet<Stadium> Stadiums { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -54,6 +57,20 @@ namespace AwayDayzAPI.Database
                 .WithMany(u => u.FriendshipsAsUser2)  // Changed to FriendshipsAsUser2
                 .HasForeignKey(f => f.User2Id)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Koppling: En arena har många inlägg
+            builder.Entity<Stadium>()
+                .HasMany(s => s.Posts)
+                .WithOne(p => p.Stadium)
+                .HasForeignKey(p => p.StadiumId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Koppling: Ett inlägg har många kommentarer
+            builder.Entity<Post>()
+                .HasMany(p => p.Comments)
+                .WithOne(c => c.Post)
+                .HasForeignKey(c => c.PostId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

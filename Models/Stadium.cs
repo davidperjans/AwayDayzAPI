@@ -10,5 +10,13 @@
         public int Capacity { get; set; }
         public string Surface { get; set; }
         public string ImageUrl { get; set; }
+
+        public virtual List<Post> Posts { get; set; } = new List<Post>();
+
+        public double GetAverageRating()
+        {
+            var ratings = Posts.Select(p => p.Rating).Where(r => r > 0).ToList();
+            return ratings.Any() ? ratings.Average() : 0;
+        }
     }
 }
