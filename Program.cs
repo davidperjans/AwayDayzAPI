@@ -9,6 +9,7 @@ using AwayDayzAPI.Services.Auth;
 using AwayDayzAPI.Services.FootballApiService;
 using AwayDayzAPI.Services.FriendRequestFolder;
 using AwayDayzAPI.Services.FriendShip;
+using AwayDayzAPI.Services.PostService;
 using AwayDayzAPI.Services.Token;
 using AwayDayzAPI.Validators;
 using FluentValidation;
@@ -101,6 +102,7 @@ namespace AwayDayzAPI
             builder.Services.AddScoped<IAdminService, AdminService>();
             builder.Services.AddScoped<IFriendRequestService, FriendRequestService>();
             builder.Services.AddScoped<IFriendshipService, FriendshipService>();
+            builder.Services.AddScoped<IPostService, PostService>();
             builder.Services.AddScoped<DatabaseSeeder>();
             builder.Services.AddHttpClient();
             builder.Services.AddScoped<IFootballApiService, FootballApiService>();

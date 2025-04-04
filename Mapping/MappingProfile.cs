@@ -2,6 +2,7 @@
 using AwayDayzAPI.Models;
 using AwayDayzAPI.Models.DTOs.Auth;
 using AwayDayzAPI.Models.DTOs.Friend;
+using AwayDayzAPI.Models.DTOs.Post;
 using AwayDayzAPI.Models.DTOs.Stadium;
 using AwayDayzAPI.Models.DTOs.User;
 using AwayDayzAPI.Models.Responses;
@@ -30,6 +31,9 @@ namespace AwayDayzAPI.Mapping
                 .ForMember(dest => dest.FriendName, opt => opt.MapFrom((src, dest, destMember, context) =>
                     src.User1Id == (string)context.Items["CurrentUserId"] ? src.User2.UserName : src.User1.UserName))
                 .ForMember(dest => dest.FriendsSince, opt => opt.MapFrom(src => src.StartedAt));
+
+            CreateMap<Post, GetAllPostsDto>()
+                .ForMember(dest => dest.StadiumName, opt => opt.MapFrom(src => src.Stadium.Name));
 
 
             // Mappa från StadiumApiResponse till en lista av StadiumDto
