@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using AwayDayzAPI.Database;
-using AwayDayzAPI.DTOs;
 using AwayDayzAPI.Enums;
 using AwayDayzAPI.Models;
+using AwayDayzAPI.Models.DTOs.Friend;
 using AwayDayzAPI.Utils;
 using Microsoft.EntityFrameworkCore;
 

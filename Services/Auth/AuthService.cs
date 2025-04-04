@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using AwayDayzAPI.DTOs;
 using AwayDayzAPI.Models;
+using AwayDayzAPI.Models.DTOs.Auth;
 using AwayDayzAPI.Services.Token;
 using AwayDayzAPI.Utils;
 using FluentValidation;

@@ -1,6 +1,6 @@
 ﻿using AwayDayzAPI.Utils;
 using AwayDayzAPI.Models;
-using AwayDayzAPI.DTOs;
+using AwayDayzAPI.Models.DTOs.Friend;
 
 namespace AwayDayzAPI.Services.FriendRequestFolder
 {

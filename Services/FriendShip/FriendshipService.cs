@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using AwayDayzAPI.Database;
-using AwayDayzAPI.DTOs;
+using AwayDayzAPI.Models.DTOs.Friend;
 using AwayDayzAPI.Utils;
 using Microsoft.EntityFrameworkCore;
 
