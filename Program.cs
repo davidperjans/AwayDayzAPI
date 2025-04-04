@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AwayDayzAPI.Database;
 using AwayDayzAPI.Models;
+using AwayDayzAPI.Seeder;
 using AwayDayzAPI.Services.Admin;
 using AwayDayzAPI.Services.Auth;
 using AwayDayzAPI.Services.FootballApiService;
@@ -100,6 +101,7 @@ namespace AwayDayzAPI
             builder.Services.AddScoped<IAdminService, AdminService>();
             builder.Services.AddScoped<IFriendRequestService, FriendRequestService>();
             builder.Services.AddScoped<IFriendshipService, FriendshipService>();
+            builder.Services.AddScoped<DatabaseSeeder>();
             builder.Services.AddHttpClient();
             builder.Services.AddScoped<IFootballApiService, FootballApiService>();
             builder.Services.AddAutoMapper(typeof(Program));
@@ -116,6 +118,11 @@ namespace AwayDayzAPI
 
 
             var app = builder.Build();
+
+            // Seed the database with initial data
+            var scope = app.Services.CreateScope();
+            var seeder = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
+            seeder.SeedUsersAsync().Wait();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
