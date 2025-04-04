@@ -1,6 +1,6 @@
 ﻿using AwayDayzAPI.Enums;
 
-namespace AwayDayzAPI.DTOs
+namespace AwayDayzAPI.Models.DTOs.Friend
 {
     public class FriendRequestDto
     {

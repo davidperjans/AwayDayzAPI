@@ -1,4 +1,4 @@
-﻿using AwayDayzAPI.DTOs;
+﻿using AwayDayzAPI.Models.DTOs.Auth;
 using AwayDayzAPI.Services.Auth;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

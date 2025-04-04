@@ -1,4 +1,4 @@
-﻿using AwayDayzAPI.DTOs;
+﻿using AwayDayzAPI.Models.DTOs.Friend;
 using AwayDayzAPI.Utils;
 
 namespace AwayDayzAPI.Services.FriendShip

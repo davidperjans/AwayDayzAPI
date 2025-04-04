@@ -1,4 +1,4 @@
-﻿namespace AwayDayzAPI.DTOs
+﻿namespace AwayDayzAPI.Models.DTOs.User
 {
     public class ProfileDto
     {

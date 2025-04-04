@@ -1,4 +1,4 @@
-﻿using AwayDayzAPI.DTOs;
+﻿using AwayDayzAPI.Models.DTOs.Auth;
 using FluentValidation;
 
 namespace AwayDayzAPI.Validators
