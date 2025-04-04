@@ -33,5 +33,23 @@ namespace AwayDayzAPI.Services.Admin
                 ? OperationResult<string>.Success("Role assigned successfully")
                 : OperationResult<string>.Failure("Failed to assign role");
         }
+
+        public async Task<OperationResult<List<IdentityRole>>> GetAllRolesAsync(string sortOrder)
+        {
+            var roles = _roleManager.Roles.ToList();
+            
+            if (sortOrder.ToLower() == "desc")
+            {
+                roles = roles.OrderByDescending(r => r.Name).ToList();
+            }
+            else
+            {
+                roles = roles.OrderBy(r => r.Name).ToList();
+            }
+
+            var roleList = roles.ToList();
+            return OperationResult<List<IdentityRole>>.Success(roleList);
+
+        }
     }
 }
