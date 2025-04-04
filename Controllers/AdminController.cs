@@ -29,5 +29,15 @@ namespace AwayDayzAPI.Controllers
                 ? Ok(result.Data)
                 : BadRequest(result.Message);
         }
+
+        [HttpGet("get-all-roles")]
+        public async Task<IActionResult> GetRoles([FromQuery] string sortOrder = "asc")
+        {
+            var result = await _adminService.GetAllRolesAsync(sortOrder);
+
+            return result.IsSuccess
+                ? Ok(result.Data)
+                : BadRequest(result.Message);
+        }
     }
 }
