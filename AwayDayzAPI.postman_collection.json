@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "cf7f0884-f787-4e27-ac51-56a0c99d5107",
+		"name": "AwayDayzAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40496878"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "assign-role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"string\",\r\n  \"roleName\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7024/api/Admin/assign-role",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Admin",
+								"assign-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/Admin/get-all-roles?sortOrder=asc",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Admin",
+								"get-all-roles"
+							],
+							"query": [
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"string\",\r\n  \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7024/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"userName\": \"string\",\r\n  \"password\": \"string\",\r\n  \"confirmPassword\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7024/api/Auth/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FriendRequest",
+			"item": [
+				{
+					"name": "send-friendrequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/FriendRequest/send-friendrequest?receiverUsername=receiverUsername",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"FriendRequest",
+								"send-friendrequest"
+							],
+							"query": [
+								{
+									"key": "receiverUsername",
+									"value": "receiverUsername"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accept-friendrequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/FriendRequest/accept-friendrequest?requestId=55",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"FriendRequest",
+								"accept-friendrequest"
+							],
+							"query": [
+								{
+									"key": "requestId",
+									"value": "55"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decline-friendrequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/FriendRequest/decline-friendrequest?requestId=33",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"FriendRequest",
+								"decline-friendrequest"
+							],
+							"query": [
+								{
+									"key": "requestId",
+									"value": "33"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pending-requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/FriendRequest/pending-requests",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"FriendRequest",
+								"pending-requests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Friendship",
+			"item": [
+				{
+					"name": "get-all-friends",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/Friendship/get-all-friends",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Friendship",
+								"get-all-friends"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove-friend",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/Friendship/remove-friend?friendToRemove=friendToRemove",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Friendship",
+								"remove-friend"
+							],
+							"query": [
+								{
+									"key": "friendToRemove",
+									"value": "friendToRemove"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "create-a-post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"stadiumId\": 0,\r\n  \"rating\": 0,\r\n  \"comment\": \"string\",\r\n  \"isPrivate\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7024/api/Post/create-a-post",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Post",
+								"create-a-post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/Post/delete-post/22",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Post",
+								"delete-post",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/Post/get-posts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Post",
+								"get-posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comment\": \"string\",\r\n  \"rating\": 0,\r\n  \"isPrivate\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7024/api/Post/update-post/66",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Post",
+								"update-post",
+								"66"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stadium",
+			"item": [
+				{
+					"name": "stadium",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "signInToAccess",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7024/api/Stadium/stadium/stadiumName",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7024",
+							"path": [
+								"api",
+								"Stadium",
+								"stadium",
+								"stadiumName"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
