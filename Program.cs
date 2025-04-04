@@ -5,6 +5,8 @@ using AwayDayzAPI.Database;
 using AwayDayzAPI.Models;
 using AwayDayzAPI.Services.Admin;
 using AwayDayzAPI.Services.Auth;
+using AwayDayzAPI.Services.FriendRequestFolder;
+using AwayDayzAPI.Services.FriendShip;
 using AwayDayzAPI.Services.Token;
 using AwayDayzAPI.Validators;
 using FluentValidation;
@@ -95,6 +97,8 @@ namespace AwayDayzAPI
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IAdminService, AdminService>();
+            builder.Services.AddScoped<IFriendRequestService, FriendRequestService>();
+            builder.Services.AddScoped<IFriendshipService, FriendshipService>();
             builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
 
