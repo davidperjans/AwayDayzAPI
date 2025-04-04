@@ -5,6 +5,7 @@ using AwayDayzAPI.Models.DTOs.Friend;
 using AwayDayzAPI.Models.DTOs.Stadium;
 using AwayDayzAPI.Models.DTOs.User;
 using AwayDayzAPI.Models.Responses;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AwayDayzAPI.Mapping
 {
@@ -35,7 +36,6 @@ namespace AwayDayzAPI.Mapping
             CreateMap<StadiumApiResponse, List<StadiumDto>>()
                 .AfterMap((src, dest) =>
                 {
-                    // Vi mappar listan från src.Response till dest direkt efter mappningen.
                     dest.AddRange(src.Response.Select(r => new StadiumDto
                     {
                         Id = r.Id,
@@ -49,15 +49,25 @@ namespace AwayDayzAPI.Mapping
                     }));
                 });
 
-            // Mappa från ResponseStadium till StadiumDto
+            CreateMap<Stadium, StadiumDto>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
+            .ForMember(dest => dest.Capacity, opt => opt.MapFrom(src => src.Capacity))
+            .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.City))
+            .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Country))
+            .ForMember(dest => dest.Surface, opt => opt.MapFrom(src => src.Surface))
+            .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
+
             CreateMap<StadiumApiResponse.ResponseStadium, StadiumDto>()
+                .ForMember(dest => dest.Capacity, opt => opt.MapFrom(src =>
+                    src.Capacity > 0 ? src.Capacity : 0)) // Sätt till 0 om Capacity är ogiltigt
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.City))
                 .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.Country))
-                .ForMember(dest => dest.Capacity, opt => opt.MapFrom(src => src.Capacity))
                 .ForMember(dest => dest.Surface, opt => opt.MapFrom(src => src.Surface))
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Image));
+
+
         }
     }
 }

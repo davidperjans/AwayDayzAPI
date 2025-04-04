@@ -13,6 +13,7 @@ namespace AwayDayzAPI.Database
 
         public DbSet<FriendRequest> FriendRequests { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
+        public DbSet<Stadium> Stadiums { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
